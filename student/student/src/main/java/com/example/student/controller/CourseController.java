@@ -1,7 +1,8 @@
 package com.example.student.controller;
 
+import com.example.student.model.Course;
 import com.example.student.model.Student;
-import com.example.student.service.StudentService;
+import com.example.student.service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,14 +12,13 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-public class StudentController {
+public class CourseController {
 
     @Autowired
-    StudentService studentService;
+    CourseService courseService;
 
-    @GetMapping(value="/students")
-    public ResponseEntity<List<Student>> getAllStudent() {
-        return new ResponseEntity<>(studentService.getAllStudent(), HttpStatus.OK);
+    @GetMapping(value="/courses")
+    public ResponseEntity<List<Course>> getAllStudent() {
+        return new ResponseEntity<>(courseService.getAllCourses(), HttpStatus.OK);
     }
-
 }
