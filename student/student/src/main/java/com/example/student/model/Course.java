@@ -18,6 +18,9 @@ public class Course {
     )
     private List<Student> students = new ArrayList<>();
 
+//    @OneToMany(cascade = CascadeType.ALL, mappedBy="COURSE_ID") // maybe CascadeType.REMOVE is enough for you
+//    private List<StudentEnrolment> studentEnrolments = new ArrayList<>();
+
     public int getId() {
         return id;
     }
@@ -41,4 +44,12 @@ public class Course {
     public void setStudents(List<Student> students) {
         this.students = students;
     }
+
+//    public List<StudentEnrolment> getStudentEnrolments() {
+//        return studentEnrolments;
+//    }
+//
+//    public void setStudentEnrolments(List<StudentEnrolment> studentEnrolments) {
+//        this.studentEnrolments = studentEnrolments;
+//    }
 }

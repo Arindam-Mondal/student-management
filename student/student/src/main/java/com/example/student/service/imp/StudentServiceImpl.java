@@ -21,4 +21,26 @@ public class StudentServiceImpl implements StudentService {
         studentRepository.findAll().forEach(studentList::add);
         return studentList;
     }
+
+    @Override
+    public Student saveStudent(Student newStudent) {
+        return studentRepository.save(newStudent);
+    }
+
+    @Override
+    public Student updateStudent(Student newStudent, int id) {
+        return studentRepository.findById(id).map(student -> {
+            student.setName(newStudent.getName());
+            return studentRepository.save(student);
+        }).orElseGet(()->{return null;});
+    }
+
+    @Override
+    public Boolean deleteStudent(int id) {
+        return studentRepository.findById(id).map(student -> {
+            studentRepository.deleteById(student.getId());
+            return true;
+        }).orElseGet(()->{return false;});
+    }
+
 }
