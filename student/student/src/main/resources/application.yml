@@ -6,6 +6,12 @@ spring:
     username: postgres
     password: root
     driverClassName: org.postgresql.Driver
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: https://www.googleapis.com/service_accounts/v1/jwk/securetoken%40system.gserviceaccount.com
+
 info:
   app:
     name: Spring Sample Application
